@@ -1,0 +1,13 @@
+[Unit]
+Description=uWSGI instance to serve blog app
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/webapps/blog
+Environment="PATH=/webapps/blog/venv/bin"
+ExecStart=/webapps/blog/venv/bin/uwsgi --ini blog.ini
+
+[Install]
+WantedBy=multi-user.target
