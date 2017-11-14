@@ -1,11 +1,16 @@
 from application import app
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, abort
 from application.models import Post
 from application.database import db_session
 import datetime
 
 @app.route('/')
 def index():
+    """
+        Index route for de app
+
+    :return: Html
+    """
     return render_template(
         'index.html'
         )    
@@ -13,6 +18,11 @@ def index():
 
 @app.route('/posts')
 def posts():
+    """
+        post list
+
+    :return: Html
+    """
     ctx = {}
     posts = Post.query.order_by("id desc")
     ctx['posts'] = posts
@@ -53,6 +63,21 @@ def new_post():
 
     return render_template(
         'new_post.html',
+        ctx = ctx
+    )
+
+
+@app.route('/posts/<int:post_id>/edit')
+def edit_post(post_id):
+    ctx = {}
+    post = Post.query.filter_by(id=post_id).first()
+    if post:
+        ctx['post'] = post
+    else:
+        abort(404)
+
+    return render_template(
+        'edit_post.html',
         ctx = ctx
     )
 
