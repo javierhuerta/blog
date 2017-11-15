@@ -7,7 +7,7 @@ import datetime
 @app.route('/')
 def index():
     """
-        Index route for de app
+        Index route for app
 
     :return: Html
     """
