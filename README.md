@@ -5,7 +5,7 @@ Aplicación Flask de prueba
 * Python 2.7 (lenguaje de programación)
 * pip (gestor de paquetes de python)
 * git (sistema de control de versiones)
-* virtualenv (paquete de python encargado de generar entornos aislados de desarrollo, instalar con: __pip install virtualenv__)
+* virtualenv (paquete de python encargado de generar entornos aislados de desarrollo, instalar con: __pip install virtualenv__
 * editor de codigo de preferencia (visual studio code, sublime text, notepad++)
 
 ## Configuración
